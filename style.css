@@ -1,46 +1,52 @@
 /* ==========================================================================
-   Sentinel AI - Cyber Threat Intelligence & URL Detector Stylesheet
+   CyberGuard — Modern Minimalist Lilac Cybersecurity Stylesheet
+   Developed for Sakshi Singh • B.Tech CSE (Data Science) 3rd Year
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg-primary: #07090e;
-  --bg-secondary: #0d121d;
-  --bg-tertiary: #131b2e;
-  --bg-card: rgba(16, 23, 38, 0.72);
-  --bg-glass: rgba(22, 32, 54, 0.6);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-glow: rgba(0, 212, 255, 0.25);
+  /* Lilac & Light Minimal Color Palette */
+  --bg-primary: #f8f7fc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f2edf8;
+  --bg-card: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.88);
+  --border-subtle: rgba(126, 87, 194, 0.14);
+  --border-glow: rgba(126, 87, 194, 0.3);
 
-  --text-primary: #f0f4fc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-primary: #231942;
+  --text-secondary: #5e548e;
+  --text-muted: #8d82aa;
 
-  --accent-cyan: #00d4ff;
-  --accent-cyan-glow: rgba(0, 212, 255, 0.35);
-  --accent-purple: #8b5cf6;
-  --accent-purple-glow: rgba(139, 92, 246, 0.3);
+  /* Lilac Accents */
+  --accent-cyan: #7e57c2;
+  --accent-cyan-glow: rgba(126, 87, 194, 0.25);
+  --accent-purple: #9c64fe;
+  --accent-purple-glow: rgba(156, 100, 254, 0.25);
+  --accent-soft-lilac: #e8dff5;
 
-  --status-safe: #00f59b;
-  --status-safe-glow: rgba(0, 245, 155, 0.35);
-  --status-caution: #00d4ff;
-  --status-suspicious: #ffb300;
-  --status-suspicious-glow: rgba(255, 179, 0, 0.35);
-  --status-danger: #ff3366;
-  --status-danger-glow: rgba(255, 51, 102, 0.4);
+  /* Status Tokens */
+  --status-safe: #10b981;
+  --status-safe-glow: rgba(16, 185, 129, 0.25);
+  --status-caution: #7e57c2;
+  --status-suspicious: #f59e0b;
+  --status-suspicious-glow: rgba(245, 158, 11, 0.25);
+  --status-danger: #ef4444;
+  --status-danger-glow: rgba(239, 68, 68, 0.25);
 
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 18px;
-  --radius-xl: 24px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
   --radius-full: 9999px;
 
   --transition-fast: 0.18s ease;
   --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  --card-shadow: 0 4px 20px rgba(108, 92, 231, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 * {
@@ -58,7 +64,7 @@ html, body {
   line-height: 1.5;
 }
 
-/* Background Cyber Grid Effect */
+/* Minimalist Soft Lilac Background Ambient */
 body::before {
   content: '';
   position: fixed;
@@ -66,12 +72,11 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: 
-    radial-gradient(circle at 15% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 85% 80%, rgba(139, 92, 246, 0.07) 0%, transparent 45%),
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  background: 
+    radial-gradient(circle at 12% 16%, rgba(200, 182, 226, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 88% 85%, rgba(224, 212, 248, 0.45) 0%, transparent 50%),
+    radial-gradient(circle at 50% 45%, rgba(246, 242, 252, 0.8) 0%, transparent 65%);
+  background-color: #f7f5fb;
   pointer-events: none;
   z-index: 0;
 }
@@ -94,9 +99,10 @@ body::before {
   align-items: center;
   justify-content: space-between;
   padding: 14px 28px;
-  background: var(--bg-secondary);
+  background: rgba(255, 255, 255, 0.92);
   border-bottom: 1px solid var(--border-subtle);
   backdrop-filter: blur(16px);
+  box-shadow: 0 2px 14px rgba(126, 87, 194, 0.04);
 }
 
 .brand-container {
@@ -109,58 +115,42 @@ body::before {
   width: 42px;
   height: 42px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.25));
-  border: 1px solid var(--border-glow);
+  background: linear-gradient(135deg, rgba(126, 87, 194, 0.16), rgba(156, 100, 254, 0.22));
+  border: 1px solid rgba(126, 87, 194, 0.28);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--accent-cyan);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.brand-logo::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(60deg, transparent 40%, rgba(0, 212, 255, 0.3) 50%, transparent 60%);
-  animation: radarScan 4s linear infinite;
-}
-
-@keyframes radarScan {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  box-shadow: 0 4px 12px rgba(126, 87, 194, 0.12);
 }
 
 .brand-info h1 {
   font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
   display: flex;
   align-items: center;
   gap: 8px;
+  color: var(--text-primary);
 }
 
 .brand-info h1 span.highlight {
-  background: linear-gradient(90deg, #00d4ff, #8b5cf6);
+  background: linear-gradient(90deg, #6c5ce7, #a29bfe);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .tagline {
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   color: var(--text-secondary);
   font-family: var(--font-mono);
+  font-weight: 500;
 }
 
 .header-status-area {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .threat-def-badge {
@@ -168,12 +158,13 @@ body::before {
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  background: rgba(0, 245, 155, 0.08);
-  border: 1px solid rgba(0, 245, 155, 0.25);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: var(--radius-full);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-family: var(--font-mono);
-  color: var(--status-safe);
+  color: #059669;
+  font-weight: 600;
 }
 
 .pulse-dot {
@@ -181,7 +172,7 @@ body::before {
   height: 8px;
   border-radius: 50%;
   background-color: var(--status-safe);
-  box-shadow: 0 0 10px var(--status-safe);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
   animation: pulseDot 2s infinite ease-in-out;
 }
 
@@ -191,21 +182,23 @@ body::before {
 }
 
 .header-btn {
-  background: var(--bg-tertiary);
+  background: #ffffff;
   border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
+  color: var(--text-secondary);
   padding: 7px 14px;
   border-radius: var(--radius-sm);
   font-size: 0.8rem;
+  font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 6px;
   transition: var(--transition-fast);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .header-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #f4effa;
   border-color: var(--accent-cyan);
   color: var(--accent-cyan);
 }
@@ -222,15 +215,15 @@ body::before {
 }
 
 /* ==========================================================================
-   Chat Column
+   Security Inspection Stream (Left Column)
    ========================================================================== */
 .chat-container {
   display: flex;
   flex-direction: column;
   height: 100%;
   border-right: 1px solid var(--border-subtle);
-  background: rgba(10, 14, 23, 0.45);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
 }
 
 .chat-history {
@@ -250,7 +243,7 @@ body::before {
 }
 .chat-history::-webkit-scrollbar-thumb,
 .intel-scroll-body::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(126, 87, 194, 0.22);
   border-radius: 4px;
 }
 .chat-history::-webkit-scrollbar-thumb:hover,
@@ -288,18 +281,18 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
-}
-
-.avatar.bot-avatar {
-  background: linear-gradient(135deg, #00d4ff 0%, #3b82f6 100%);
-  color: #07090e;
-  box-shadow: 0 0 16px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(126, 87, 194, 0.15);
 }
 
 .avatar.user-avatar {
-  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  background: linear-gradient(135deg, #7e57c2 0%, #6c5ce7 100%);
+  color: #fff;
+}
+
+.avatar.bot-avatar {
+  background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
   color: #fff;
 }
 
@@ -332,74 +325,61 @@ body::before {
 }
 
 .message.user .bubble {
-  background: linear-gradient(135deg, #271f45, #1c2b48);
-  border: 1px solid rgba(139, 92, 246, 0.35);
-  color: #f8fafc;
+  background: linear-gradient(135deg, #7e57c2, #6c5ce7);
+  border: 1px solid rgba(108, 92, 231, 0.25);
+  color: #ffffff;
   border-bottom-right-radius: 4px;
+  box-shadow: 0 4px 14px rgba(108, 92, 231, 0.18);
 }
 
 .message.bot .bubble {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  border: 1px solid rgba(126, 87, 194, 0.16);
   color: var(--text-primary);
   border-bottom-left-radius: 4px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--card-shadow);
 }
 
 .message.bot .bubble strong {
-  color: var(--accent-cyan);
-}
-
-.detected-urls-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 8px;
-  padding: 4px 10px;
-  background: rgba(0, 212, 255, 0.12);
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  border-radius: var(--radius-full);
-  font-size: 0.76rem;
-  font-family: var(--font-mono);
-  color: var(--accent-cyan);
+  color: #5b4cc4;
 }
 
 /* ==========================================================================
-   Threat Assessment Card (Inside Chat)
+   Threat Assessment Card (Inside Feed)
    ========================================================================== */
 .threat-card {
   margin-top: 14px;
-  background: rgba(13, 19, 33, 0.95);
+  background: #ffffff;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(126, 87, 194, 0.2);
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 6px 24px rgba(108, 92, 231, 0.08);
 }
 
 .threat-card.border-danger {
-  border-color: rgba(255, 51, 102, 0.5);
-  box-shadow: 0 0 24px rgba(255, 51, 102, 0.18);
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow: 0 0 24px rgba(239, 68, 68, 0.1);
 }
 
 .threat-card.border-suspicious {
-  border-color: rgba(255, 179, 0, 0.5);
-  box-shadow: 0 0 24px rgba(255, 179, 0, 0.18);
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 24px rgba(245, 158, 11, 0.1);
 }
 
 .threat-card.border-caution {
-  border-color: rgba(0, 212, 255, 0.4);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+  border-color: rgba(126, 87, 194, 0.4);
+  box-shadow: 0 0 20px rgba(126, 87, 194, 0.1);
 }
 
 .threat-card.border-safe {
-  border-color: rgba(0, 245, 155, 0.4);
-  box-shadow: 0 0 20px rgba(0, 245, 155, 0.15);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
 }
 
 .threat-card-header {
   padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border-bottom: 1px solid var(--border-subtle);
+  background: #faf8fd;
+  border-bottom: 1px solid rgba(126, 87, 194, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -421,33 +401,33 @@ body::before {
 }
 
 .pill-danger {
-  background: rgba(255, 51, 102, 0.15);
-  color: var(--status-danger);
-  border: 1px solid var(--status-danger);
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 .pill-suspicious {
-  background: rgba(255, 179, 0, 0.15);
-  color: var(--status-suspicious);
-  border: 1px solid var(--status-suspicious);
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 .pill-caution {
-  background: rgba(0, 212, 255, 0.15);
-  color: var(--status-caution);
-  border: 1px solid var(--status-caution);
+  background: rgba(126, 87, 194, 0.1);
+  color: #6c5ce7;
+  border: 1px solid rgba(126, 87, 194, 0.3);
 }
 
 .pill-safe {
-  background: rgba(0, 245, 155, 0.15);
-  color: var(--status-safe);
-  border: 1px solid var(--status-safe);
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .threat-url-row {
   padding: 10px 16px;
-  background: rgba(0, 0, 0, 0.25);
-  border-bottom: 1px solid var(--border-subtle);
+  background: #f6f3fa;
+  border-bottom: 1px solid rgba(126, 87, 194, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -495,19 +475,20 @@ body::before {
   gap: 10px;
   padding: 8px 12px;
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.03);
+  background: #fcfbfe;
+  border: 1px solid rgba(126, 87, 194, 0.1);
   border-left: 3px solid transparent;
   font-size: 0.82rem;
 }
 
 .flag-item.flag-danger {
   border-left-color: var(--status-danger);
-  background: rgba(255, 51, 102, 0.06);
+  background: rgba(239, 68, 68, 0.04);
 }
 
 .flag-item.flag-warning {
   border-left-color: var(--status-suspicious);
-  background: rgba(255, 179, 0, 0.06);
+  background: rgba(245, 158, 11, 0.04);
 }
 
 .flag-icon {
@@ -530,11 +511,11 @@ body::before {
 
 .card-recommendations {
   padding: 10px 14px;
-  background: rgba(0, 212, 255, 0.05);
-  border: 1px solid rgba(0, 212, 255, 0.18);
+  background: rgba(126, 87, 194, 0.06);
+  border: 1px solid rgba(126, 87, 194, 0.2);
   border-radius: var(--radius-sm);
   font-size: 0.8rem;
-  color: #cbd5e1;
+  color: #3f3162;
 }
 
 .card-recommendations ul {
@@ -548,16 +529,16 @@ body::before {
 
 .threat-card-footer {
   padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border-top: 1px solid var(--border-subtle);
+  background: #faf8fd;
+  border-top: 1px solid rgba(126, 87, 194, 0.1);
   display: flex;
   justify-content: flex-end;
 }
 
 .inspect-btn {
-  background: rgba(0, 212, 255, 0.15);
+  background: rgba(126, 87, 194, 0.12);
   color: var(--accent-cyan);
-  border: 1px solid rgba(0, 212, 255, 0.4);
+  border: 1px solid rgba(126, 87, 194, 0.3);
   padding: 6px 14px;
   border-radius: var(--radius-sm);
   font-size: 0.78rem;
@@ -571,8 +552,8 @@ body::before {
 
 .inspect-btn:hover {
   background: var(--accent-cyan);
-  color: var(--bg-primary);
-  box-shadow: 0 0 14px var(--accent-cyan-glow);
+  color: #ffffff;
+  box-shadow: 0 2px 10px var(--accent-cyan-glow);
 }
 
 /* ==========================================================================
@@ -580,7 +561,7 @@ body::before {
    ========================================================================== */
 .chat-footer {
   padding: 16px 24px;
-  background: var(--bg-secondary);
+  background: rgba(255, 255, 255, 0.95);
   border-top: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
@@ -598,28 +579,31 @@ body::before {
   height: 3px;
 }
 .suggestion-chips::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(126, 87, 194, 0.2);
 }
 
 .chip-btn {
   white-space: nowrap;
   padding: 6px 12px;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  border: 1px solid rgba(126, 87, 194, 0.2);
   border-radius: var(--radius-full);
   color: var(--text-secondary);
   font-size: 0.76rem;
+  font-weight: 500;
   cursor: pointer;
   transition: var(--transition-fast);
   display: flex;
   align-items: center;
   gap: 6px;
+  box-shadow: 0 1px 3px rgba(126, 87, 194, 0.05);
 }
 
 .chip-btn:hover {
-  background: rgba(0, 212, 255, 0.12);
+  background: #f4eefa;
   border-color: var(--accent-cyan);
   color: var(--accent-cyan);
+  transform: translateY(-1px);
 }
 
 .chat-input-row {
@@ -638,24 +622,25 @@ body::before {
 .chat-input {
   width: 100%;
   padding: 13px 44px 13px 18px;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  border: 1px solid rgba(126, 87, 194, 0.25);
   border-radius: var(--radius-lg);
   color: var(--text-primary);
   font-size: 0.92rem;
   outline: none;
   transition: var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(126, 87, 194, 0.04);
 }
 
 .chat-input:focus {
   border-color: var(--accent-cyan);
-  box-shadow: 0 0 16px var(--accent-cyan-glow);
+  box-shadow: 0 0 0 3px rgba(126, 87, 194, 0.16);
 }
 
 .send-btn {
   padding: 12px 20px;
-  background: linear-gradient(135deg, #00d4ff 0%, #0077ff 100%);
-  color: #07090e;
+  background: linear-gradient(135deg, #7e57c2 0%, #6c5ce7 100%);
+  color: #ffffff;
   font-weight: 700;
   border: none;
   border-radius: var(--radius-lg);
@@ -665,12 +650,13 @@ body::before {
   gap: 8px;
   font-size: 0.88rem;
   transition: var(--transition-fast);
-  box-shadow: 0 4px 18px rgba(0, 212, 255, 0.35);
+  box-shadow: 0 4px 14px rgba(108, 92, 231, 0.28);
 }
 
 .send-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 22px rgba(0, 212, 255, 0.5);
+  background: linear-gradient(135deg, #6c5ce7 0%, #5b4cc4 100%);
+  box-shadow: 0 6px 20px rgba(108, 92, 231, 0.38);
 }
 
 .send-btn:active {
@@ -683,7 +669,7 @@ body::before {
 .intel-sidebar {
   display: flex;
   flex-direction: column;
-  background: var(--bg-secondary);
+  background: rgba(255, 255, 255, 0.9);
   border-left: 1px solid var(--border-subtle);
   overflow: hidden;
   height: 100%;
@@ -695,6 +681,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: #ffffff;
 }
 
 .sidebar-header h2 {
@@ -718,13 +705,14 @@ body::before {
 
 /* Quick Scanner Box */
 .quick-scanner-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  border: 1px solid rgba(126, 87, 194, 0.16);
   border-radius: var(--radius-md);
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  box-shadow: var(--card-shadow);
 }
 
 .box-title {
@@ -736,6 +724,7 @@ body::before {
   display: flex;
   align-items: center;
   gap: 6px;
+  font-weight: 600;
 }
 
 .scanner-input-row {
@@ -745,23 +734,26 @@ body::before {
 
 .scanner-input {
   flex: 1;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-subtle);
+  background: #fbf9fd;
+  border: 1px solid rgba(126, 87, 194, 0.2);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
   font-size: 0.82rem;
   font-family: var(--font-mono);
   padding: 8px 12px;
   outline: none;
+  transition: var(--transition-fast);
 }
 
 .scanner-input:focus {
   border-color: var(--accent-cyan);
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.12);
 }
 
 .scanner-btn {
   background: var(--accent-cyan);
-  color: var(--bg-primary);
+  color: #ffffff;
   border: none;
   padding: 8px 14px;
   border-radius: var(--radius-sm);
@@ -769,17 +761,18 @@ body::before {
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(126, 87, 194, 0.25);
 }
 
 .scanner-btn:hover {
-  background: #33e1ff;
-  box-shadow: 0 0 14px var(--accent-cyan-glow);
+  background: #6c5ce7;
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.35);
 }
 
 /* Threat Score Meter (Gauge) */
 .threat-gauge-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  border: 1px solid rgba(126, 87, 194, 0.16);
   border-radius: var(--radius-md);
   padding: 20px;
   display: flex;
@@ -788,6 +781,7 @@ body::before {
   text-align: center;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--card-shadow);
 }
 
 .gauge-svg-container {
@@ -805,7 +799,7 @@ body::before {
 
 .gauge-bg-circle {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.08);
+  stroke: #ece8f5;
   stroke-width: 12;
 }
 
@@ -834,17 +828,19 @@ body::before {
   font-weight: 800;
   font-family: var(--font-mono);
   line-height: 1;
+  color: var(--text-primary);
 }
 
 .gauge-score-max {
   font-size: 0.75rem;
   color: var(--text-muted);
   font-family: var(--font-mono);
+  font-weight: 600;
 }
 
 .gauge-verdict-label {
   margin-top: 10px;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: 0.5px;
   padding: 4px 14px;
@@ -860,13 +856,14 @@ body::before {
 
 /* URL Anatomy Dissector */
 .dissector-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  border: 1px solid rgba(126, 87, 194, 0.16);
   border-radius: var(--radius-md);
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-shadow: var(--card-shadow);
 }
 
 .dissector-grid {
@@ -881,37 +878,40 @@ body::before {
   color: var(--text-muted);
   text-align: right;
   padding: 4px 0;
+  font-weight: 500;
 }
 
 .grid-value {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.03);
+  background: #f6f3fa;
   padding: 4px 8px;
   border-radius: 4px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  border: 1px solid rgba(126, 87, 194, 0.08);
 }
 
 .grid-value.highlight-alert {
-  color: var(--status-danger);
-  background: rgba(255, 51, 102, 0.12);
-  border: 1px solid rgba(255, 51, 102, 0.3);
+  color: #dc2626;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
 }
 
 .grid-value.highlight-safe {
-  color: var(--status-safe);
+  color: #059669;
 }
 
 /* Threat Heuristics Matrix Checklist */
 .heuristics-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  border: 1px solid rgba(126, 87, 194, 0.16);
   border-radius: var(--radius-md);
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-shadow: var(--card-shadow);
 }
 
 .heuristics-list {
@@ -926,7 +926,8 @@ body::before {
   justify-content: space-between;
   padding: 7px 10px;
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.02);
+  background: #fbf9fd;
+  border: 1px solid rgba(126, 87, 194, 0.08);
   font-size: 0.78rem;
 }
 
@@ -935,6 +936,7 @@ body::before {
   align-items: center;
   gap: 8px;
   color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .h-status-badge {
@@ -946,30 +948,31 @@ body::before {
 }
 
 .badge-pass {
-  background: rgba(0, 245, 155, 0.12);
-  color: var(--status-safe);
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
 }
 
 .badge-flagged {
-  background: rgba(255, 51, 102, 0.18);
-  color: var(--status-danger);
-  border: 1px solid rgba(255, 51, 102, 0.3);
+  background: rgba(239, 68, 68, 0.14);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.25);
 }
 
 .badge-warning {
-  background: rgba(255, 179, 0, 0.18);
-  color: var(--status-suspicious);
+  background: rgba(245, 158, 11, 0.14);
+  color: #d97706;
 }
 
 /* Presets Test Bank */
 .presets-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  border: 1px solid rgba(126, 87, 194, 0.16);
   border-radius: var(--radius-md);
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-shadow: var(--card-shadow);
 }
 
 .presets-grid {
@@ -979,8 +982,8 @@ body::before {
 }
 
 .preset-btn {
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-subtle);
+  background: #fbf9fd;
+  border: 1px solid rgba(126, 87, 194, 0.18);
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
   padding: 9px 10px;
@@ -1000,37 +1003,40 @@ body::before {
 }
 
 .preset-btn:hover {
-  background: rgba(0, 212, 255, 0.1);
+  background: #f4effa;
   border-color: var(--accent-cyan);
+  transform: translateY(-1px);
 }
 
 /* Sidebar Footer / Export */
 .sidebar-footer {
   padding: 14px 24px;
   border-top: 1px solid var(--border-subtle);
-  background: var(--bg-secondary);
+  background: #ffffff;
   display: flex;
   gap: 10px;
 }
 
 .export-btn {
   flex: 1;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  border: 1px solid rgba(126, 87, 194, 0.22);
   color: var(--text-primary);
   padding: 8px;
   border-radius: var(--radius-sm);
   font-size: 0.78rem;
+  font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   transition: var(--transition-fast);
+  box-shadow: 0 1px 3px rgba(126, 87, 194, 0.05);
 }
 
 .export-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: #f4effa;
   border-color: var(--accent-cyan);
   color: var(--accent-cyan);
 }
@@ -1068,12 +1074,13 @@ body::before {
   bottom: 24px;
   right: 24px;
   padding: 12px 20px;
-  background: var(--bg-tertiary);
+  background: #ffffff;
   border: 1px solid var(--accent-cyan);
   border-radius: var(--radius-md);
   color: var(--text-primary);
   font-size: 0.84rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(126, 87, 194, 0.2);
   display: flex;
   align-items: center;
   gap: 10px;

@@ -104,9 +104,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function initWelcomeMessage() {
     chatHistory.innerHTML = '';
     appendBotMessage(
-      `**Greetings, Operator.** I am **Sentinel AI**, your dedicated threat intelligence analyst.\n\n` +
-      `You can paste **any suspicious URL** or ask security questions directly in this chat. I will instantly run our multi-layer heuristic matrix to detect **phishing kits, typosquatting, brand spoofing, abused TLDs, and credential harvesters**.\n\n` +
-      `Try one of the scenario chips below or paste a link to begin!`,
+      `**CyberGuard Threat Detection Engine Initialized & Active.**\n\n` +
+      `Ready for lexical URL feature extraction and structural risk scoring. Enter or paste any target URL to run automated security evaluation for **brand spoofing, typosquatting, deceptive subdomains, suspicious TLDs, and credential harvesters**.\n\n` +
+      `Select a sample attack vector below or enter a target URL to begin inspection.`,
       null
     );
   }
@@ -117,34 +117,35 @@ document.addEventListener('DOMContentLoaded', () => {
     return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
   }
 
-  // Add User Message to Chat
+  // Add Target / Scan Entry Message to Stream
   function appendUserMessage(text) {
     const msgDiv = document.createElement('div');
     msgDiv.className = 'message user';
     msgDiv.innerHTML = `
-      <div class="avatar user-avatar">OP</div>
+      <div class="avatar user-avatar" style="font-weight:700; font-size:11px; background:linear-gradient(135deg, #a29bfe, #7e57c2); color:#fff;">SCAN</div>
       <div class="bubble-wrap">
         <div class="sender-meta">
-          <span>YOU</span>
+          <span>INPUT TARGET</span>
           <span>•</span>
           <span>${getTimestamp()}</span>
         </div>
-        <div class="bubble">${escapeHtml(text)}</div>
+        <div class="bubble" style="font-family:monospace; font-size:0.88rem;">${escapeHtml(text)}</div>
       </div>
     `;
     chatHistory.appendChild(msgDiv);
     chatHistory.scrollTop = chatHistory.scrollHeight;
   }
 
-  // Add Bot Typing Indicator
+  // Add Inspection Progress Indicator
   function showTypingIndicator() {
     const typingDiv = document.createElement('div');
     typingDiv.className = 'message bot';
     typingDiv.id = 'typingIndicator';
     typingDiv.innerHTML = `
-      <div class="avatar bot-avatar">AI</div>
+      <div class="avatar bot-avatar" style="font-weight:700; font-size:11px; background:linear-gradient(135deg, #7e57c2, #6c5ce7); color:#fff;">SEC</div>
       <div class="bubble-wrap">
-        <div class="bubble typing-bubble">
+        <div class="bubble typing-bubble" style="padding:10px 16px;">
+          <span style="font-size:0.75rem; color:#5e548e; font-family:monospace; margin-right:8px;">EXTRACTING FEATURES...</span>
           <span class="typing-dot"></span>
           <span class="typing-dot"></span>
           <span class="typing-dot"></span>
@@ -161,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (el) el.remove();
   }
 
-  // Add Bot Message to Chat (with optional Threat Assessment Card)
+  // Add Engine Inspection Report to Stream
   function appendBotMessage(markdownText, analysisResult = null) {
     const msgDiv = document.createElement('div');
     msgDiv.className = 'message bot';
@@ -174,10 +175,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const formattedContent = formatSimpleMarkdown(markdownText);
 
     msgDiv.innerHTML = `
-      <div class="avatar bot-avatar">AI</div>
+      <div class="avatar bot-avatar" style="font-weight:700; font-size:11px; background:linear-gradient(135deg, #7e57c2, #6c5ce7); color:#fff;">SEC</div>
       <div class="bubble-wrap">
         <div class="sender-meta">
-          <span>SENTINEL AI</span>
+          <span>CYBERGUARD ENGINE</span>
           <span>•</span>
           <span>${getTimestamp()}</span>
         </div>
@@ -386,59 +387,54 @@ document.addEventListener('DOMContentLoaded', () => {
           playSound('safe');
         }
 
-        // Generate customized explanation
+        // Generate professional security telemetry explanation
         let explanation = '';
         if (analysis.stats.score >= 70) {
-          explanation = `🚨 **High Threat Detected!** My heuristic scanner identified critical phishing markers in this link. ` +
-            `The host **"${analysis.components.hostname}"** poses significant risk to credentials, passwords, or personal data. ` +
-            `Review the threat breakdown card below:`;
+          explanation = `🚨 **CRITICAL RISK DETECTED (${analysis.stats.score}/100):** Multiple malicious threat indicators identified in target URL structure. ` +
+            `Target host **"${analysis.components.hostname}"** exhibits phishing heuristics and credential harvesting characteristics. ` +
+            `Refer to the technical breakdown below:`;
         } else if (analysis.stats.score >= 40) {
-          explanation = `⚠️ **Suspicious Link Warning:** This link exhibits several anomaly flags (such as suspicious keywords or high-risk TLDs). ` +
-            `Verify the legitimacy of the sender before clicking.`;
+          explanation = `⚠️ **SUSPICIOUS URL DETECTED (${analysis.stats.score}/100):** Structural anomalies identified (such as deceptive keywords, non-standard path depth, or high-risk domain extension). ` +
+            `Exercise extreme caution before navigating to this destination.`;
         } else if (analysis.stats.score >= 20) {
-          explanation = `ℹ️ **Caution Advised:** The link is operational, but contains non-standard parameters or masks the final destination (such as a URL shortener).`;
+          explanation = `ℹ️ **LOW-RISK CAUTION (${analysis.stats.score}/100):** Target destination is obfuscated or shortened (e.g. redirection shortener). Destination should be verified.`;
         } else {
-          explanation = `✅ **Security Check Passed:** The URL **"${analysis.components.hostname}"** appears clean and aligns with legitimate domain standards and encryption protocols.`;
+          explanation = `✅ **SECURITY VERIFICATION PASSED (0/100):** Target hostname **"${analysis.components.hostname}"** complies with verified apex domain standards and encryption protocols.`;
         }
 
         appendBotMessage(explanation, analysis);
 
       } else {
-        // Conversational Q&A logic
+        // Technical Reference Glossary & Fallback
         const lower = trimmed.toLowerCase();
         let reply = '';
 
         if (lower.includes('typosquat') || lower.includes('lookalike')) {
-          reply = `**Typosquatting** (also known as URL hijacking) is a technique where scammers register domain names with intentional misspellings of popular brands (e.g., \`arnazon.com\` instead of \`amazon.com\`, or \`paypa1.com\`).\n\n` +
-            `**How to stay safe:**\n` +
-            `1. Always look closely at the apex domain directly before the TLD (\`.com\`).\n` +
-            `2. Bookmark high-value banking and account services rather than clicking links in emails or SMS.\n` +
-            `3. Watch out for character substitutions like \`rn\` looking like \`m\`, or \`1\` looking like \`l\`.`;
+          reply = `**Technical Reference: Typosquatting (URL Hijacking)**\n\n` +
+            `Typosquatting is a social engineering attack where malicious actors register domains with deliberate typographic variations of trusted brands (e.g., \`paypa1.com\` vs \`paypal.com\`).\n\n` +
+            `**Detection Vectors:**\n` +
+            `1. **Levenshtein Distance:** Measures character substitution edits against known apex domains.\n` +
+            `2. **Homoglyph & Glyph Substitution:** Identifies visually similar character mapping (\`1\` for \`l\`, \`0\` for \`o\`, \`rn\` for \`m\`).\n` +
+            `3. **Deceptive Subdomain Stacking:** Prepending brand names to spoofed base domains (\`paypal.com.account-verify.xyz\`).`;
         } else if (lower.includes('phishing') || lower.includes('spot')) {
-          reply = `**How to spot phishing links in seconds:**\n\n` +
-            `• **Subdomain Deception:** Scammers often put the trusted brand in the subdomain (e.g., \`paypal.com.verify-billing.xyz\`) where the real domain is actually \`verify-billing.xyz\`.\n` +
-            `• **High-Risk TLDs:** Watch for cheap or free top-level domains like \`.top\`, \`.xyz\`, \`.zip\`, or \`.click\` used in mass campaigns.\n` +
-            `• **Urgency Baits:** Keywords like *account suspended*, *confirm identity*, or *2FA recovery* are engineered to bypass critical thinking.\n` +
-            `• **Direct IP Hosts:** Legitimate companies rarely host public customer logins on bare IP addresses (e.g. \`http://192.168.1.1\`).`;
+          reply = `**Technical Reference: Phishing URL Indicators**\n\n` +
+            `• **Subdomain Deception:** Spoofed brand names prepended to unverified third-party hosts.\n` +
+            `• **High-Risk TLD Abuse:** Cheap or high-entropy top-level domains frequently associated with automated spam campaigns (\`.xyz\`, \`.top\`, \`.click\`).\n` +
+            `• **Credential Theft Tokens:** URI paths containing authentication keywords (\`login\`, \`verify\`, \`account-update\`, \`auth\`).\n` +
+            `• **Bare IP Addressing:** URLs using raw IPv4/IPv6 notation instead of registered DNS records.`;
         } else if (lower.includes('shorten') || lower.includes('bitly') || lower.includes('bit.ly')) {
-          reply = `**URL Shorteners (\`bit.ly\`, \`tinyurl.com\`):**\n\n` +
-            `Attackers use shorteners to mask malicious destinations from automated email filters and human inspection.\n` +
-            `**Tip:** You can check where a \`bit.ly\` link leads by adding a \`+\` at the end of the URL in your browser address bar (e.g. \`bit.ly/sample+\`) to view its preview info!`;
-        } else if (lower.includes('clicked') || lower.includes('compromised')) {
-          reply = `**If you clicked a suspicious link, follow this response checklist immediately:**\n\n` +
-            `1. **Disconnect or close** the page immediately. Do not submit any forms.\n` +
-            `2. **Change your password** on the official website if you entered credentials.\n` +
-            `3. **Enable Multi-Factor Authentication (MFA)** using an authenticator app.\n` +
-            `4. **Run a full antivirus / malware scan** on your device.\n` +
-            `5. **Check bank/card statements** for unauthorized transactions if payment info was entered.`;
+          reply = `**Technical Reference: URL Shortener Obfuscation**\n\n` +
+            `Shortening services (\`bit.ly\`, \`tinyurl.com\`) conceal the final target destination from automated security scanners and users.\n` +
+            `CyberGuard flags shortened URLs for mandatory destination resolution before trust is assigned.`;
         } else {
-          reply = `I am ready to analyze any link. **Paste any URL** (such as a link from an email, SMS, or Discord message) into the chat box, and I will dissect its security posture in real time!`;
+          reply = `**Input Notice:** No valid URL detected in input string.\n\n` +
+            `Please enter a complete website link or IP address (e.g., \`http://secure-paypal-login.xyz/verify\` or \`https://github.com\`) to perform automated threat inspection.`;
         }
 
         playSound('blip');
         appendBotMessage(reply, null);
       }
-    }, 450);
+    }, 120);
   }
 
   // Event Listeners
@@ -463,7 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const url = sidebarScanInput.value.trim();
     if (!url) return;
     sidebarScanInput.value = '';
-    handleSendMessage(`Analyze this URL: ${url}`);
+    handleSendMessage(url);
   });
 
   sidebarScanInput.addEventListener('keydown', (e) => {
@@ -477,15 +473,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.preset-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const url = btn.getAttribute('data-url');
-      handleSendMessage(`Analyze target URL: ${url}`);
+      handleSendMessage(url);
     });
   });
 
-  // Clear Chat
+  // Clear Inspection Log
   clearChatBtn.addEventListener('click', () => {
     initWelcomeMessage();
     playSound('blip');
-    showToast('Chat history cleared');
+    showToast('Inspection log cleared');
   });
 
   // Copy Markdown Report
@@ -497,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const a = lastAnalysis;
     const md = [
-      `# Sentinel AI Threat Report: ${a.rawUrl}`,
+      `# CyberGuard Threat Inspection Report: ${a.rawUrl}`,
       `**Timestamp:** ${new Date().toISOString()}`,
       `**Risk Score:** ${a.stats.score}/100 (${a.stats.verdict})`,
       `**Protocol:** ${a.components.protocol.toUpperCase()}`,

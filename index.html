@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sentinel AI — Cyber Phishing & URL Threat Intelligence Chatbot</title>
-  <meta name="description" content="Real-time AI URL threat detection and phishing analysis chatbot. Detect malicious links, typosquatting, brand spoofing, and dangerous URLs instantly.">
+  <title>CyberGuard — Phishing & Malicious URL Threat Detection System</title>
+  <meta name="description" content="Real-time lexical URL threat detection and phishing analysis system. Detect malicious links, typosquatting, brand spoofing, and dangerous URLs instantly.">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300d4ff'><path d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z'/></svg>">
 </head>
@@ -14,36 +14,36 @@
     <!-- Header Section -->
     <header class="header" role="banner">
       <div class="brand-container">
-        <div class="brand-logo" id="brandLogo" aria-label="Sentinel Security Shield">
+        <div class="brand-logo" id="brandLogo" aria-label="CyberGuard Security Shield">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             <path d="m9 12 2 2 4-4"></path>
           </svg>
         </div>
         <div class="brand-info">
-          <h1>SENTINEL <span class="highlight">AI</span></h1>
-          <p class="tagline">THREAT INTELLIGENCE & PHISHING DETECTOR</p>
+          <h1>CYBERGUARD <span class="highlight">PRO</span></h1>
+          <p class="tagline">PHISHING & MALICIOUS URL THREAT DETECTION SYSTEM</p>
         </div>
       </div>
 
       <div class="header-status-area">
-        <div class="developer-profile-pill" style="display:flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(0,255,204,0.08);border:1px solid rgba(0,255,204,0.3);border-radius:20px;font-size:12px;color:#e0f2fe;">
+        <div class="developer-profile-pill" style="display:flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(126,87,194,0.08);border:1px solid rgba(126,87,194,0.25);border-radius:20px;font-size:12px;color:#231942;">
           <span style="font-size:16px;">👩‍💻</span>
           <div style="line-height:1.2;text-align:left;">
-            <div style="font-weight:700;color:#00ffcc;">Sakshi Singh</div>
-            <div style="font-size:10px;color:#94a3b8;">B.Tech CSE (Data Science) 3rd Yr • LIET</div>
+            <div style="font-weight:700;color:#6c5ce7;">Sakshi Singh</div>
+            <div style="font-size:10px;color:#5e548e;">B.Tech CSE (Data Science) 3rd Yr • LIET</div>
           </div>
         </div>
         <div class="threat-def-badge" id="threatEngineStatus" title="Threat heuristics engine loaded and operational">
           <span class="pulse-dot"></span>
           <span>HEURISTIC ENGINE ACTIVE</span>
         </div>
-        <button class="header-btn" id="clearChatBtn" title="Clear chat conversation">
+        <button class="header-btn" id="clearChatBtn" title="Clear inspection log">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="3 6 5 6 21 6"></polyline>
             <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
           </svg>
-          <span>Clear Chat</span>
+          <span>Clear Log</span>
         </button>
         <button class="header-btn" id="audioToggleBtn" title="Toggle audio feedback">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="audioIcon">
@@ -58,35 +58,35 @@
     <!-- Main Content Workspace -->
     <main class="main-content" role="main">
 
-      <!-- Left Column: Chatbot Conversation Stream -->
-      <section class="chat-container" aria-label="Chat Conversation Stream">
+      <!-- Left Column: Security Inspection Stream -->
+      <section class="chat-container" aria-label="Security Threat Inspection Stream">
         <div class="chat-history" id="chatHistory">
-          <!-- Initial bot welcome message will be rendered dynamically by app.js -->
+          <!-- Initial system welcome message will be rendered dynamically by app.js -->
         </div>
 
-        <!-- Chat Footer: Suggestions Chips & Input Bar -->
+        <!-- Threat Scanner Input Bar & Attack Vector Chips -->
         <footer class="chat-footer">
-          <!-- Quick Suggestion / Test Chips -->
-          <nav class="suggestion-chips" aria-label="Suggested Prompts">
-            <button class="chip-btn" data-prompt="Analyze this link: http://paypal-security-login-verify.top/account">
+          <!-- Attack Vector Test Chips -->
+          <nav class="suggestion-chips" aria-label="Sample Test Attack Vectors">
+            <button class="chip-btn" data-prompt="http://paypal-security-login-verify.top/account">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
-              <span>Phishing Simulation</span>
+              <span>Phishing: Brand Spoofing</span>
             </button>
-            <button class="chip-btn" data-prompt="Is https://github.com/torvalds/linux safe to open?">
+            <button class="chip-btn" data-prompt="https://github.com/torvalds/linux">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Verified Safe URL</span>
+              <span>Legitimate: GitHub Repo</span>
             </button>
-            <button class="chip-btn" data-prompt="Scan this IP host: http://192.168.1.105/admin-login.php">
+            <button class="chip-btn" data-prompt="http://192.168.1.105/admin-login.php">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
-              <span>Direct IP Link</span>
+              <span>Vector: Raw IP Host</span>
             </button>
-            <button class="chip-btn" data-prompt="What is typosquatting and how do attackers spoof brands?">
+            <button class="chip-btn" data-prompt="http://paypal.com.auth-user-recover.cam/login">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-              <span>What is Typosquatting?</span>
+              <span>Vector: Deceptive Subdomain</span>
             </button>
-            <button class="chip-btn" data-prompt="Scan shortened URL: https://bit.ly/3xSecVault">
+            <button class="chip-btn" data-prompt="https://bit.ly/3xSecVault">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-              <span>URL Shortener Scan</span>
+              <span>Vector: Concealed Shortener</span>
             </button>
           </nav>
 
@@ -97,16 +97,16 @@
                 type="text" 
                 id="chatInput" 
                 class="chat-input" 
-                placeholder="Ask a question or paste any URL (e.g. http://secure-update-paypal.top/login)..." 
+                placeholder="Paste or enter URL to inspect (e.g. http://paypal-security-update.xyz/login)..." 
                 autocomplete="off"
-                aria-label="Message Sentinel AI"
+                aria-label="Target URL to inspect"
               >
             </div>
-            <button class="send-btn" id="sendBtn" title="Send message or scan URL">
-              <span>Scan / Send</span>
+            <button class="send-btn" id="sendBtn" title="Run Threat Inspection">
+              <span>Inspect URL</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
             </button>
           </div>
@@ -156,7 +156,7 @@
             </div>
             <div class="gauge-verdict-label pill-safe" id="gaugeVerdictLabel">SYSTEM READY</div>
             <p class="gauge-verdict-desc" id="gaugeVerdictDesc">
-              Paste or type any URL in the chat or input box to trigger live heuristic dissection.
+              Enter or paste any URL into the inspection bar to trigger real-time lexical threat analysis.
             </p>
           </div>
 
@@ -280,11 +280,11 @@
         </div>
 
         <!-- Student Developer Credit Card -->
-        <div class="developer-credit-box" style="margin: 14px 16px 18px; padding: 14px; background: rgba(15, 23, 42, 0.85); border-radius: 10px; border: 1px solid rgba(0, 255, 204, 0.25); text-align: center; font-size: 11px;">
-          <div style="display:inline-block; padding: 2px 8px; background: rgba(0,255,204,0.15); border-radius: 12px; font-size: 10px; font-weight:700; color: #00ffcc; text-transform: uppercase; margin-bottom: 6px;">🎓 Major Project</div>
-          <div style="font-weight: 700; color: #ffffff; font-size: 13px; margin-bottom: 3px;">Developed by: Sakshi Singh</div>
-          <div style="color: #38bdf8; margin-bottom: 3px; font-weight: 500;">B.Tech CSE (Data Science) — 3rd Year</div>
-          <div style="color: #00ffcc; font-weight: 600; font-size: 11.5px;">Lloyd Institute of Engineering and Technology</div>
+        <div class="developer-credit-box" style="margin: 14px 16px 18px; padding: 16px; background: #ffffff; border-radius: 12px; border: 1px solid rgba(126, 87, 194, 0.22); text-align: center; font-size: 11px; box-shadow: 0 4px 18px rgba(108, 92, 231, 0.06);">
+          <div style="display:inline-block; padding: 3px 10px; background: rgba(126,87,194,0.12); border-radius: 12px; font-size: 10px; font-weight:700; color: #6c5ce7; text-transform: uppercase; margin-bottom: 8px;">🎓 Major Project</div>
+          <div style="font-weight: 800; color: #231942; font-size: 13.5px; margin-bottom: 3px;">Developed by: Sakshi Singh</div>
+          <div style="color: #5e548e; margin-bottom: 4px; font-weight: 500;">B.Tech CSE (Data Science) — 3rd Year</div>
+          <div style="color: #6c5ce7; font-weight: 700; font-size: 11.5px;">Lloyd Institute of Engineering and Technology</div>
         </div>
       </aside>
 
